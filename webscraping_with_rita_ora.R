@@ -67,8 +67,13 @@ ritaora_search<-ritaora_search%>%mutate(url2=paste0(start,url))
 txturls <- ritaora_search$url
 
 #scrape text
-for (i in test$url2)
+for (i in test$url2) #may not have set up loop correctly
 {
-  testtext<-read_html(i)
+  testtext<-read_html(i) 
 } #seems to return pure html
+readtext_parsed<-html_nodes(testtext,css='p')%>%html_text()#text from only last url
+
+
+
+
 
